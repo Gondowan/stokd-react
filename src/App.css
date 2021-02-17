@@ -1,6 +1,49 @@
-@media only screen and (min-width: 350px) {
+@media only screen and (min-width: 300px) {
   .carousel {
     margin: auto !important; 
-    height: 750px;
+    height: 200px !important;
+  }
+
+  .brand-logo {
+    height: 56px !important;
+  }
+
+  .brand-logo img {
+    height: 100% !important;
+  }
+
+  .home-card{
+    max-width: 600px;
+    text-align: center;
+  }
+  .home-card img{
+    width: 100%;
+  }
+  .home-card h1{
+    font-size: 2rem;
+  }
+  .home-card p{
+    font-size: 1rem;
+    color: rgba(0, 0, 0, 0.4);
+  }
+
+  .home-title {
+    text-align: center;
+    margin: 7rem auto;
+  }
+
+  .home-title h2{
+    font-size: 3rem;
+    font-weight: 700;
+  }
+
+  .home-title h5{
+    font-size: 1.2rem;
+
+  }
+
+  .home-title-btn {
+    margin-top: 3rem;
   }
 }
+

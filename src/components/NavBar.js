@@ -1,11 +1,12 @@
 import { Navbar, NavItem, Icon } from 'react-materialize';
+import logo from '../stokd-logo.png';
 
 const NavBar = () => {
 
     return (
-        <Navbar
+        <Navbar className="deep-orange lighten-1"
             alignLinks="right"
-            brand={<a className="brand-logo" href="#">Logo</a>}
+            brand={<a className="brand-logo" href="#"><img src={logo}/></a>}
             id="mobile-nav"
             menuIcon={<Icon>menu</Icon>}
             options={{

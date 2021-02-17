@@ -4,7 +4,7 @@ const Slider = () => {
 
     return (
         <div
-            className="s12 m10 l8 xl6 carousel"
+            className="s12 m10 l8 xl6 carousel z-depth-5"
         >
             <Carousel
                 carouselId="Carousel-2"
