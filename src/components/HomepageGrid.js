@@ -41,7 +41,7 @@ const itemList = data.map(item => { return(
     <br />
     <b>Total products:</b> {item.total}
     </p>
-    <a
+    <a href="#/"
     className="secondary-content"
     >
     <Icon>

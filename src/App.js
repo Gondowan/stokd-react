@@ -1,20 +1,24 @@
 import './App.css';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import NavBar from './components/NavBar.js';
-import Slider from './components/Slider.js';
-import { Container, Row, Col } from 'react-materialize';
+import { Container, Row} from 'react-materialize';
 import HomePage from './components/HomePage.js';
 
 
 function App() {
   return (
-    <>
+    <BrowserRouter>
       <NavBar />
-      <Container>
-        <Row>
-            <HomePage/>
+      <Switch>
+        <Row className="center">
+          <Container>
+            <Route path="/">
+              <HomePage />
+            </Route>
+          </Container>
         </Row>
-      </Container>
-   </>
+      </Switch>
+   </BrowserRouter>
   );
 }
 

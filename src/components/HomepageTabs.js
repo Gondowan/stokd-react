@@ -5,7 +5,7 @@ import {Tabs, Tab} from 'react-materialize';
 const HomepageTabs = () => {
    return (
        
-       <div className="z-depth-3">
+       <div className="z-depth-3 tab-container">
         <Tabs className="tab-demo z-depth-3 tabs-fixed-width">
             <Tab
             active
@@ -28,7 +28,7 @@ const HomepageTabs = () => {
             }}
             title="Charts"
             >
-                <img src="https://res.cloudinary.com/dliczkabg/image/upload/v1614015434/stokd-icons/sunburst_y4pror.gif" style={{width: '100%'}}/>
+                <img src="https://res.cloudinary.com/dliczkabg/image/upload/v1614015434/stokd-icons/sunburst_y4pror.gif" className="graph" alt="graph"/>
             </Tab>
         </Tabs>
         </div>

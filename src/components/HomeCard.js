@@ -17,20 +17,21 @@ const HomeCard = () => {
     }
     ]
 
-    const cards = data.map(item => { return(
-        <div className="home-card" key = {Math.random()}>
-        <h1>{item.title}</h1>
-        <img src={item.image} className="z-depth-2" alt='product'/>
-        <p>{item.p1}</p>
-        <p>{item.p2}</p>
-        </div>
+    const cards = data.map(item => { 
+        return(
+            <div className="home-card" key={Math.random()}>
+                <h1>{item.title}</h1>
+                <img src={item.image} className="z-depth-3" alt='product'/>
+                <h5>{item.p1}</h5>
+                <h5>{item.p2}</h5>
+            </div>
     )
 })
 
     return(
-        <>
-        {cards}
-        </>
+        <div className="card-container" key="home-card-container">
+            {cards}
+        </div>
     )  
       
     }
