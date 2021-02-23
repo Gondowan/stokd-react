@@ -1,11 +1,12 @@
-import { Navbar, NavItem, Icon } from 'react-materialize';
+import { Navbar, Icon } from 'react-materialize';
+import { Link } from 'react-router-dom';
 import logo from '../stokd-logo.png';
 
 const NavBar = () => {  
     return (
         <Navbar className="deep-orange lighten-1 navbar"
             alignLinks="right"
-            brand={<a className="brand-logo" href="/"><img src={logo}/></a>}
+            brand={<a className="brand-logo" href="/"><img src={logo} alt="logo"/></a>}
             id="mobile-nav"
             menuIcon={<Icon>menu</Icon>}
             options={{
@@ -19,14 +20,18 @@ const NavBar = () => {
                 outDuration: 200,
                 preventScrolling: true
             }}
-            sidenav={<li>Custom node!</li>}
-        >
-        <NavItem href="">
-            Getting started
-        </NavItem>
-        <NavItem href="components.html">
-            Components
-        </NavItem>
+            sidenav={
+                <div className="side-menu">
+                    <Link to="/login">Login</Link>
+                    <Link to="/register">Create account</Link>
+                    <Link to="/contact">Get in touch</Link>
+                </div>
+            }
+        >  
+            <Link to="/contact">Get in touch</Link>
+            <Link to="/login">Login</Link>
+            <Link to="/register">Create account</Link>
+
         </Navbar>
     )
 }

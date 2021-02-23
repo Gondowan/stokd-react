@@ -1,24 +1,27 @@
 import './App.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import NavBar from './components/NavBar.js';
-import { Container, Row} from 'react-materialize';
 import HomePage from './components/HomePage.js';
+import ContactForm from './components/ContactForm';
 
 
 function App() {
   return (
     <BrowserRouter>
-      <NavBar />
-      <Switch>
-        <Row className="center">
-          <Container>
-            <Route path="/">
-              <HomePage />
-            </Route>
-          </Container>
-        </Row>
-      </Switch>
-   </BrowserRouter>
+        <div >
+          <NavBar/>
+          <div className="App">
+          <Switch>
+              <Route exact path="/">
+                <HomePage />
+              </Route>
+              <Route exact path="/contact">
+                <ContactForm/>
+              </Route>
+          </Switch>
+          </div>
+        </div>
+      </BrowserRouter>
   );
 }
 

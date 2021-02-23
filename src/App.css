@@ -1,4 +1,18 @@
 @media only screen and (min-width: 300px) {
+  .App{
+    margin: auto;
+  }
+  .side-menu{
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    padding: 50px 30px;
+  }
+  .side-menu a{
+    font-size: 2rem;
+    color: black;
+    margin: 1rem;
+  }
   .navbar{
     position: sticky;
     top: 0;
@@ -104,6 +118,9 @@
 .graph{
   width: 100%;
 }
+.form-container{
+  height: 100vh;
+}
 }
 
 @media only screen and (min-width: 450px){
@@ -133,9 +150,15 @@
   .graph{
     width: 80%;
   }
+  .App{
+    width: 90%;
+  }
 }
 
 @media only screen and (min-width: 1200px){
+  .App{
+    width: 70%;
+  }
   .home-title h1{
     font-size: 4rem;
     font-weight: 700;

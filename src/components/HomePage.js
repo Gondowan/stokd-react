@@ -1,6 +1,7 @@
 import Slider from './Slider.js';
 import HomeCard from './HomeCard.js';
 import { Button, Icon, CardPanel } from 'react-materialize';
+import { Link } from 'react-router-dom';
 import HomepageTabs from './HomepageTabs.js';
 
 
@@ -11,16 +12,12 @@ const HomePage = () => {
          <div className="home-title">
             <h1>Take control of your business</h1>
             <h5>Visualize the way you manage inventory and ordering. </h5>
-            <Button className="home-title-btn deep-orange lighten-1 hoverable"
-                large
-                node="a"
-                waves="light"
-            >
-                Learn More
+            <Link to="/contact" className="btn btn-large home-title-btn deep-orange lighten-1 hoverable">
+                Learn more
                 <Icon right>
                 send
                 </Icon>
-            </Button>
+            </Link>
          </div>
             <Slider/>
             <HomeCard/>
