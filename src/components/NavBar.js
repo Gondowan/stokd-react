@@ -6,7 +6,7 @@ const NavBar = () => {
     return (
         <Navbar className="deep-orange lighten-1 navbar"
             alignLinks="right"
-            brand={<a className="brand-logo" href="/"><img src={logo} alt="logo"/></a>}
+            brand={<Link to="/" className="brand-logo"><img src={logo} alt="logo"/></Link>}
             id="mobile-nav"
             menuIcon={<Icon>menu</Icon>}
             options={{
