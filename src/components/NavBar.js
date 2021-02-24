@@ -22,12 +22,14 @@ const NavBar = () => {
             }}
             sidenav={
                 <div className="side-menu">
+                    <Link to="/dashboard">Dashboard</Link>
                     <Link to="/login">Login</Link>
                     <Link to="/register">Create account</Link>
                     <Link to="/contact">Get in touch</Link>
                 </div>
             }
         >  
+            <Link to="/dashboard">Dashboard</Link>
             <Link to="/contact">Get in touch</Link>
             <Link to="/login">Login</Link>
             <Link to="/register">Create account</Link>

@@ -8,7 +8,7 @@ import HomepageTabs from './HomepageTabs.js';
 const HomePage = () => {
 
     return (
-        <>
+        <div className="App">
          <div className="home-title">
             <h1>Take control of your business</h1>
             <h5>Visualize the way you manage inventory and ordering. </h5>
@@ -39,7 +39,7 @@ const HomePage = () => {
                     </Icon>
                 </Button>
             </CardPanel>
-        </>
+        </div>
     )
 }
 

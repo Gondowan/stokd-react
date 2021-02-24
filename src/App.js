@@ -5,6 +5,8 @@ import HomePage from './components/HomePage.js';
 import ContactForm from './components/ContactForm';
 import LoginForm from './components/LoginForm';
 import RegisterForm from './components/RegisterForm';
+import MobileDashboard from './components/MobileDashboard';
+import Dashboard from './components/Dashboard';
 
 
 function App() {
@@ -12,7 +14,7 @@ function App() {
     <BrowserRouter>
         <div >
           <NavBar/>
-          <div className="App">
+          <div className="">
           <Switch>
               <Route exact path="/">
                 <HomePage />
@@ -25,6 +27,10 @@ function App() {
               </Route>
               <Route exact path="/register">
                 <RegisterForm/>
+              </Route>
+              <Route exact path="/Dashboard">
+                <MobileDashboard/>
+                <Dashboard />
               </Route>
           </Switch>
           </div>
