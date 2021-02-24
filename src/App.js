@@ -7,6 +7,7 @@ import LoginForm from './components/LoginForm';
 import RegisterForm from './components/RegisterForm';
 import MobileDashboard from './components/MobileDashboard';
 import Dashboard from './components/Dashboard';
+import TabMenu from './components/TabMenu';
 
 
 function App() {
@@ -31,6 +32,9 @@ function App() {
               <Route exact path="/Dashboard">
                 <MobileDashboard/>
                 <Dashboard />
+              </Route>
+              <Route exact path="/tabs">
+                <TabMenu/>
               </Route>
           </Switch>
           </div>
