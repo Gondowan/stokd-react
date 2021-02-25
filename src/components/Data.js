@@ -1,3 +1,5 @@
+import { useState } from 'react';
+import  { Link } from 'react-router-dom';
 const company = {
   "id": 1,
   "name": "My Cloathing Store",
@@ -30,7 +32,9 @@ const products = [
       "category": "Tie",
       "price": 84.2,
       "features": {
-          "size": "lg"
+          "size": "lg",
+          'color': 'blue',
+          'material': 'cotton'
       },
       "sku": "1607048",
       "quantity": 42
@@ -1356,21 +1360,32 @@ const products = [
       "quantity": 43
   }
 ]
-const Data = () =>{
-    const renderedProducts = products.map(elem =>{
+
+const Data = () =>{    
+    const [productList, setProducts] = useState(products)
+
+
+    const renderedProducts = productList.map(elem =>{
+
         return(
             <tr key={elem.id}>
                 <td>
                     {elem.name}
                 </td>
+                <td className="sku">
+                    {elem.sku}
+                </td>
                 <td>
                     {elem.price}
                 </td>
                 <td>
-                    <input type="number" className="quantity-input" />
+                    <input id={elem.id} type="number" className="quantity-input" />
                 </td>
                 <td>
                     {elem.category}
+                </td>
+                <td>
+                    <Link to="#">See details <i className="far fa-paper-plane"></i></Link>
                 </td>
             </tr>
         )
@@ -1383,6 +1398,9 @@ const Data = () =>{
                     <th data-field="id">
                     Name
                     </th>
+                    <th data-field="sku" className="sku">
+                    SKU
+                    </th> 
                     <th data-field="price">
                     Price
                     </th>
@@ -1391,7 +1409,9 @@ const Data = () =>{
                     </th>
                     <th data-field="category">
                     category
-                    </th>   
+                    </th>  
+                    
+                     
                 </tr>
             </thead>  
             <tbody>

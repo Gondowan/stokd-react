@@ -1,29 +1,17 @@
-import SideNavigation from './SideNav';
-import Data from './Data';
-import Highlights from './Highlights';
-import Graphs from './Graphs'
+// import { Tab, Tabs } from 'react-materialize';
+// import Data from './Data';
+// import Highlights from './Highlights';
+// import Graphs from './Graphs';
+import SideMenu from './SideMenu';
+import Content from './Content';
+
 
 const Dashboard = () =>{
   return(
-    <div className="full-width-dashboard">
-      <div className="navigation">
-        <SideNavigation />
+      <div className="dashboard-container">
+        <SideMenu />
+        <Content />
       </div>
-      <div className="highlights">
-        <Highlights />
-        <Highlights />
-        <Highlights />
-      </div>
-      
-      <div className="content">
-        <div>
-          <Graphs />
-          <Graphs />
-          <Graphs />
-        </div>
-        <Data />
-      </div>
-    </div>
   )
 }
 

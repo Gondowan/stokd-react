@@ -6,8 +6,9 @@ const HomepageTabs = () => {
    return (
        
        <div className="z-depth-3 tab-container">
-        <Tabs className="tab-demo z-depth-3 tabs-fixed-width">
+        <Tabs className="tab-demo z-depth-3 tabs-fixed-width " >
             <Tab
+            className="s6"
             active
             options={{
                 duration: 300,
@@ -20,6 +21,7 @@ const HomepageTabs = () => {
             <HomepageGrid/>
             </Tab>
             <Tab
+            className="s6"
             options={{
                 duration: 300,
                 onShow: null,

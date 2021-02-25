@@ -1,6 +1,9 @@
 @media only screen and (min-width: 300px) {
-  .full-width-dashboard{
-    display: none;
+  .html, body, .main-container{
+    min-height: calc(100vh - 64px);
+  }
+  .col{
+    padding: 0 !important;
   }
   .App{
     margin: auto;
@@ -122,6 +125,7 @@
   margin: auto;
   position: relative;
 }
+
 .graph{
   width: 100%;
 }
@@ -134,27 +138,12 @@
   border-radius: 5px !important;
   text-align: center !important;
 }
-.tab-menu{
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  width: 300px;
-  position: relative;
-  float: left;
+.sku{
+  display: none;
 }
-.tabs.tabs-fixed-width .tab {
-  flex-grow: 0;
-}
-.tab-menu li, .tab-menu a{
-  height: 60px !important;
-  
-}
-.tab-content{
-  position: absolute;
-  left: 300px !important;
-}
-.dashboard-container{
-  width: 100px !important;
+.features{
+  display: none;
+  width: 250px;
 }
 }
 
@@ -191,8 +180,9 @@
   .table{
     width: 100%;
     overflow: scroll;
-    height: calc(100vh - 60px);
+    height: calc(90vh);
   }
+  
   .dashboard-nav{
     position: absolute;
     top: 65px;
@@ -203,50 +193,72 @@
   .mobile-dashboard{
     display: none !important;
   }
-  .full-width-dashboard{
-    display: grid !important;
-    width: 100%;
-    height: 100vh;
-    grid-template-areas: 
-    'sidenav hightlights hightlights '
-    'sidenav content content'
-    'sidenav content content';
+  .dashboard-container{
+    display: block;
+    position: relative;
+  }
+  .sku, .features{
+    display: block;
   }
 
-  .navigation{
-    grid-area: sidenav;
-    width: 20vw;
+  .dashboard-container > div{
+    position: absolute;
   }
-  .highlights{
-    grid-area: hightlights;
+  .dashboard-side-menu{
+    height: calc(100vh - 64px);
+    width: 10%;
+    padding-top: 0;
+    border-right: 1px solid rgba(0, 0, 0, 0.219);
+  }
+  .dashboard-side-menu ul{
+    margin-top: 0;
+  }
+
+  .dashboard-side-menu ul li{
+    font-size: 1.2rem;
+    /* text-align: left; */
+    margin: auto;
+    padding: 10px 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  }
+  .dashboard-side-menu ul li:hover, .dashboard-side-menu ul li:hover > a{
+    background-color: #FF7043;
+    color: white;
+  }
+
+  .dashboard-side-menu ul li:focus, .dashboard-side-menu ul li:focus > a{
+    background-color: #FF7043;
+    color: white;
+  }
+
+  .dashboard-side-menu ul .active, .dashboard-side-menu ul .active > a{
+    background-color: #FF7043;
+    color: white;
+  }
+  
+  .dashboard-side-menu ul li a{
+    color: rgba(0, 0, 0, 0.4);
+  }
+
+  .dashboard-side-menu-link{
     display: flex;
-    justify-content: space-between;
-    width: 80vw;
   }
-  .highlight-card{
-    width: 25% !important;
-    padding: 80px 150px !important;
+  .dashboard-side-menu-link i{
+    margin-right: 10px;
   }
-  .content{
-    grid-area: content;
+  .fas{
+    line-height: 1.5 !important;
   }
-  .content > div{
-    display: flex;
-    justify-content: space-between;
+ 
+  .dashboard-content{
+    width: 90%;
+    height: calc(100vh - 64px);
+    left: 10%;
   }
-
-  .content .card-panel{
-    padding: 20px;
+  ::-webkit-scrollbar {
+    display: none;
   }
-  .content .card-panel img{
-    max-width: 300px;
-    max-height: 300px;
-  }
-
-  .content > div img{
-    width: 100% !important;
-  }
-
+  
   .App{
     width: 70%;
   }
@@ -258,12 +270,22 @@
   .home-title h5{
     font-size: 1.7rem;
   }
+  /*Home dashboard styling*/
+  .home-dashboard-container{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .top, .bottom{
+    display: flex;
+    justify-content: space-between;
+    width: 95%;
+    margin: auto;
+  }
+  .top div, .bottom div{
+    width: 30%;
+    height: 400px;
+  }
 
-  .graph{
-    width: 50% !important;
-  }
-  .card-panel{
-    padding: 50px 200px;
-  }
 }
 
