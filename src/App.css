@@ -193,10 +193,14 @@
   .mobile-dashboard{
     display: none !important;
   }
+  .dashboard-wrapper{
+    display: flex;
+  }
   .dashboard-container{
     display: block;
     position: relative;
   }
+
   .sku, .features{
     display: block;
   }

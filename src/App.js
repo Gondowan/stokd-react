@@ -32,9 +32,6 @@ function App() {
                 <MobileDashboard/>
                 <Dashboard/>
               </Route>
-              <Route exact path="/tabs">
-                
-              </Route>
           </Switch>
           </div>
         </div>

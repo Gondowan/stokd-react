@@ -1,8 +1,11 @@
 import { useState } from 'react';
 import HomeDashboard from './HomeDashboard';
 import Data from './Data';
+import Reports from './Reports';
+import Support from './Support';
 
-const Content = () =>{
+const Content = (props) =>{
+  console.log(props)
   const [component, setComponent] = useState('dashboard')
 
   const displayComponent = ()=>{
@@ -10,8 +13,10 @@ const Content = () =>{
       return <HomeDashboard />
     }else if(component === 'data'){
       return <Data />
+    }else if(component === 'reports'){
+      return <Reports />
     }else{
-      return "I'm working!"
+      return <Support />
     }
   }
   return(
@@ -20,5 +25,7 @@ const Content = () =>{
     </div>
   )
 }
+
+
 
 export default Content;
