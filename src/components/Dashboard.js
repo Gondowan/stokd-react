@@ -9,7 +9,7 @@ import { useState } from 'react';
 
 
 const Dashboard = (props) =>{
-  const [component, setContent] = useState('dashboard')
+  const [component, setContent] = useState('data')
 
   const displayComponent = ()=>{
     if(component === 'dashboard'){

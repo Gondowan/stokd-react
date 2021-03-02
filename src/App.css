@@ -200,7 +200,52 @@
     display: block;
     position: relative;
   }
-
+  .message-board{
+    position: relative;
+  }
+  
+  .task-container {
+    width: 100% !important;
+  }
+  .input-wrapper{
+    border: 1px solid rgba(0, 0, 0, 0.3) !important;
+    border-radius: 5px !important;
+    margin: .5rem;
+    padding: 0 .5rem;
+  }
+  
+  .task-container i{
+    margin: 0 0.2rem !important;
+    color: rgba(0, 0, 0, 0.8);
+  }
+  .task-container input{
+    width: 85% !important;
+    border-bottom: none !important; 
+    color: rgba(0, 0, 0, 0.8) !important;   
+  }
+  .completed{
+    background-color: rgb(128, 218, 128);
+    /* color: white !important; */
+  }
+  .pending{
+    color: rgba(0, 0, 0, 0.8) !important;
+  }
+  .input-field{
+    position: absolute;
+    bottom: 0;
+    border: none !important;
+    background-color: #FF7043 !important;
+    margin-bottom: 0 !important;
+    color: white;
+    width: 97.5% !important;
+    padding-left: 10px !important;
+  }
+  .input-field::placeholder{
+    color: white;
+  }
+  .input-field:focus{
+    border-bottom: none !important;
+  }
   .sku, .features{
     display: block;
   }
@@ -286,7 +331,7 @@
     width: 95%;
     margin: auto;
   }
-  .top div, .bottom div{
+  .top > div, .bottom > div{
     width: 30%;
     height: 400px;
   }

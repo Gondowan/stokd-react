@@ -6,7 +6,7 @@ import Support from './Support';
 
 const Content = (props) =>{
   console.log(props)
-  const [component, setComponent] = useState('dashboard')
+  const [component, setComponent] = useState('data')
 
   const displayComponent = ()=>{
     if(component === 'dashboard'){
