@@ -1,5 +1,6 @@
 import Highlights from './Highlights';
-import Graphs from './Graphs'
+import Graphs from './Graphs';
+import Tasks from './Tasks';
 
 const HomeDashboard = ()=>{
   return(
@@ -7,7 +8,7 @@ const HomeDashboard = ()=>{
       <div className="top">
         <Highlights />
         <Highlights />
-        <Highlights />
+        <Tasks />
       </div>
       <div className="bottom">
         <Graphs />

@@ -1379,7 +1379,7 @@ const Data = () =>{
                     {elem.price}
                 </td>
                 <td>
-                    <input id={elem.id} type="number" className="quantity-input" />
+                    <input id={elem.id} type="number" className="quantity-input" defaultValue={elem.quantity}/>
                 </td>
                 <td>
                     {elem.category}

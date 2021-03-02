@@ -1,15 +1,12 @@
-
-import SideMenu from './SideMenu';
+import { useState } from 'react';
 import HomeDashboard from './HomeDashboard';
 import Data from './Data';
 import Reports from './Reports';
 import Support from './Support';
 
-import { useState } from 'react';
-
-
-const Dashboard = (props) =>{
-  const [component, setContent] = useState('data')
+const Content = (props) =>{
+  console.log(props)
+  const [component, setComponent] = useState('data')
 
   const displayComponent = ()=>{
     if(component === 'dashboard'){
@@ -23,13 +20,12 @@ const Dashboard = (props) =>{
     }
   }
   return(
-    <div className="dashboard-wrapper">
-      <SideMenu />
-      <div className="dashboard-content">
-        {displayComponent()}
-      </div>
+    <div className="dashboard-content">
+      {displayComponent()}
     </div>
   )
 }
 
-export default Dashboard;
+
+
+export default Content;
