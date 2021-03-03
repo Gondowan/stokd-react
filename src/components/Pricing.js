@@ -1,5 +1,5 @@
 import { Button, Icon, CardPanel } from 'react-materialize';
-
+import { Link } from 'react-router-dom';
 
 const Pricing = () => {
     
@@ -38,16 +38,17 @@ const Pricing = () => {
                 <li>24/7 Dedicated Support</li>
             </ul>
         </div>
-            <Button className="home-title-btn deep-orange lighten-1 hoverable"
+            <Link className="btn btn-large home-title-btn deep-orange lighten-1 hoverable"
                         large
                         node="a"
+                        to='/contact'
                         waves="light"
                     >
                         Learn More
                         <Icon right>
                         perm_phone_msg
                         </Icon>
-            </Button>
+            </Link>
     </div>
 
 )

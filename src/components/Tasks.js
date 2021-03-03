@@ -1,14 +1,16 @@
 import { useState } from "react";
 
 const Tasks = () =>{
-  const [tasks, setTasks ] = useState([{id: 1, text: 'update t-shirt count', pending: true}, {id: 2, text: 'price new shoes order', pending: true}, {id: 3, text: 'clean stock room', pending: true}])
+  const [tasks, setTasks ] = useState([{id: 1, text: 'update t-shirt t-shirt t-shirt t-shirt t-shirt t-shirt t-shirt t-shirt t-shirt t-shirtt-shirt t-shirtt-shirt', pending: true}, {id: 2, text: 'price new shoes order', pending: true}, {id: 3, text: 'clean stock room', pending: true}])
 
   const renderedTasks = tasks.map(task =>{
     return (
       <div key={task.id} className={ !task.pending ? 'input-wrapper completed': 'input-wrapper'}>
-        <input defaultValue={task.text} type="text" className={!task.pending ? 'completed': null} disabled/>
-        <i className="far fa-edit"></i>
-        <i className="far fa-trash-alt"></i>
+        <textarea defaultValue={task.text} type="text" className={!task.pending ? 'completed': null} disabled/>
+        <div className="icon-wrapper">
+          <i className="far fa-edit"></i>
+          <i className="far fa-trash-alt"></i>
+        </div>
       </div>
     )
   })
@@ -20,7 +22,7 @@ const Tasks = () =>{
         
       </div>
       
-      <input className="input-field" type="text" placeholder="Add a task"/>
+      <input className="task-input-field" type="text" placeholder="Add a task"/>
     </div>
   )
 }

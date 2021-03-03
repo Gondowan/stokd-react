@@ -5,16 +5,9 @@ import Tasks from './Tasks';
 const HomeDashboard = ()=>{
   return(
     <div className="home-dashboard-container">
-      <div className="top">
         <Highlights />
-        <Highlights />
+        <Graphs />
         <Tasks />
-      </div>
-      <div className="bottom">
-        <Graphs />
-        <Graphs />
-        <Graphs />
-      </div>
     </div>
   )
 }
