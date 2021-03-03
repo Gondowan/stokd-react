@@ -1,4 +1,3 @@
-
 import SideMenu from './SideMenu';
 import HomeDashboard from './HomeDashboard';
 import Data from './Data';
@@ -9,7 +8,7 @@ import { useState } from 'react';
 
 
 const Dashboard = (props) =>{
-  const [component, setContent] = useState('dashboard')
+  const [component, setContent] = useState('data')
 
   const displayComponent = ()=>{
     if(component === 'dashboard'){
