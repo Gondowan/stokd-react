@@ -39,7 +39,6 @@ const Pricing = () => {
             </ul>
         </div>
             <Link className="btn btn-large home-title-btn deep-orange lighten-1 hoverable"
-                        large
                         node="a"
                         to='/contact'
                         waves="light"

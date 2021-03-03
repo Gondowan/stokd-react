@@ -11,7 +11,7 @@ const Highlights = () =>{
     return(
       <div
       key={elem.id}
-      className="highlight-card"      
+      className="highlight-card z-depth-2"      
     >
       <i className="fas fa-boxes fa-3x"></i>
       <div>

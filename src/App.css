@@ -263,6 +263,10 @@
 }
 
 @media only screen and (min-width: 1200px){
+  .card-panel{
+    box-shadow: none !important;
+    -webkit-box-shadow: none;
+  }
   .mobile-dashboard{
     display: none !important;
   }
@@ -284,6 +288,7 @@
     display: flex;
     justify-content: space-around;
     padding: 1rem 0;
+    
   }
   .highlight-card{
     width: 30%;
@@ -303,10 +308,13 @@
     width: 70vw;
     height: 70vh;
     margin: 0;
+
+    border: none;
   }
   .graph img{
     height: 100%;
     width: 100%;
+    border: none;
   }
   .message-board{
     display: block;
