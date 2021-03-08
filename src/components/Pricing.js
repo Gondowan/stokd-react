@@ -1,4 +1,4 @@
-import { Button, Icon, CardPanel } from 'react-materialize';
+import { Icon } from 'react-materialize';
 import { Link } from 'react-router-dom';
 
 const Pricing = () => {

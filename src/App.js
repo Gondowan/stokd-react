@@ -7,7 +7,7 @@ import LoginForm from './components/LoginForm';
 import RegisterForm from './components/RegisterForm';
 import MobileDashboard from './components/MobileDashboard';
 import Dashboard from './components/Dashboard';
-
+import EditPage from './components/EditPage';
 
 function App() {
   return (
@@ -31,6 +31,9 @@ function App() {
               <Route exact path="/Dashboard">
                 <MobileDashboard/>
                 <Dashboard/>
+              </Route>
+              <Route exact path="/products/:id">
+                <EditPage />
               </Route>
           </Switch>
           </div>

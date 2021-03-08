@@ -1,12 +1,13 @@
-import Slider from './Slider.js';
 import HomeCard from './HomeCard.js';
-import { Button, Icon, CardPanel } from 'react-materialize';
+import { Icon } from 'react-materialize';
 import { Link } from 'react-router-dom';
 import HomepageTabs from './HomepageTabs.js';
 import Pricing from './Pricing';
 import FooterPage from './FooterPage';
 
 const HomePage = () => {
+
+    const initialize = () =>{}
 
     return (
         <div>

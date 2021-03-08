@@ -5,15 +5,15 @@ import axios from 'axios';
 
 class Data extends Component{    
     state = {
-        products: []
+        company: {}
     }
     componentDidMount(){
-        axios.get('https://stokd-backend-app.herokuapp.com/api/v1/companies/1/products').then(response => this.setState({products: response.data}))
+        axios.get('https://stokd-backend-app.herokuapp.com/api/v1/companies/711/products').then(response => this.setState({products: response.data}))
+        
     }
     
-    
-    
     render(){
+        console.log(this.state)
         const renderedProducts = this.state.products.map(elem =>{
             return(
                 <tr key={elem.id}>
@@ -33,14 +33,14 @@ class Data extends Component{
                         {elem.category}
                     </td>
                     <td>
-                        <Link to="#">See details <i className="far fa-paper-plane"></i></Link>
+                        <Link to={`/products/${elem.id}`}>See details <i className="far fa-paper-plane"></i></Link>
                     </td>
                 </tr>
             )
         })
         
     return(
-        <div className="table">
+        <div className="table" company={this.state.company}>
         <table className="striped highlight centered">
             <thead>
                 <tr>

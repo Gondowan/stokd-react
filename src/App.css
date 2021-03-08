@@ -316,6 +316,14 @@
     width: 100%;
     border: none;
   }
+  .attributes-box{
+    display: flex;
+    justify-content: space-between !important;
+  }
+  .attributes-box input, .attributes-box textarea{
+    width: 45%;
+  }
+
   .message-board{
     display: block;
     position: absolute;
