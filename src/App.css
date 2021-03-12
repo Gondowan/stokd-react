@@ -1,3 +1,6 @@
+
+/* CSS mobile version */
+
 @media only screen and (min-width: 300px) {
   .html, body, .main-container{
     min-height: calc(100vh - 64px);
@@ -31,17 +34,7 @@
     z-index: 998 !important;
   }
 
-  .carousel {
-    margin: auto !important; 
-    height: 250px !important;
-  }
-  .carousel-item{
-    min-height: 250px !important;
-  }
-  .carousel-item img{
-    height: 100%;
-    object-fit: cover;
-  }
+
   .brand-logo {
     height: 56px !important;
   }
@@ -131,18 +124,7 @@
     text-align: center;
   }
 
-  .carousel .indicators .indicator-item {
-    background-color: #e64919b2;
-    height: 16px;
-    width: 16px;
-    margin: 8px 6px;
-  }
-
-  .carousel .indicators .indicator-item.active {
-    background-color: #FF7043;
-
-}
-
+ 
 .tabs .tab a:focus, .tabs .tab a:focus.active {
     background-color: #FF7043 !important;
     color: white;
@@ -223,30 +205,12 @@
 }
 }
 
-@media only screen and (min-width: 450px){
-  .carousel{
-    height: 300px ;
-  }
-  .carousel-item{
-    min-height: 300px !important;
-  }
-}
-@media only screen and (min-width: 540px){
-  .carousel{
-    min-height: 450px ;
-  }
-  .carousel-item{
-    min-height: 450px !important;
-  }
-}
+
+/* End of CSS mobile version */
+
 
 @media only screen and (min-width: 650px){
-  .carousel{
-    min-height: 550px ;
-  }
-  .carousel-item{
-    min-height: 550px !important;
-  }
+ 
   .App{
     width: 90%;
   }

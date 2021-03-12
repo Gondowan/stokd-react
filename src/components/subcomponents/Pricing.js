@@ -11,28 +11,31 @@ const Pricing = () => {
          </div>   
             <h2>Free</h2>
             <ul>
-                <li>300 products</li>
-                <li>5 locations</li>
+                <li>100 products</li>
+                <li>1 location</li>
                 <li>Up to 3 days contact support</li>
+                <li>Only simple products, no attributes</li>
             </ul>
         </div>
         <div className="pricing-card z-depth-1">
             <div className="pricing-header">
                 <h3>Premium</h3>
             </div>
-            <h2>9,99€</h2>
+            <h2>19,99€</h2>
             <ul>
                 <li>1.000 products</li>
-                <li>20 locations</li>
+                <li>Up to 20 locations</li>
                 <li>Support assist in the same day</li>
+                <li>Simple and variable products</li>
             </ul>
         </div>
         <div className="pricing-card z-depth-1">
             <div className="pricing-header">
-                <h3>Advanced</h3>
+                <h3>Custom</h3>
             </div>
-            <h2>19,99€</h2>
+            <h2>Request price</h2>
             <ul>
+                <li>We do your stock management</li>
                 <li>Unlimited products</li>
                 <li>50 locations</li>
                 <li>24/7 Dedicated Support</li>
