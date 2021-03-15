@@ -1,8 +1,7 @@
 import { Tabs, Tab } from 'react-materialize';
-import Data from './Data';
+import Data from '../pages/Data';
 import Highlights  from './Highlights';
-import Graphs from './Graphs';
-import Support from './Support';
+import Support from '../pages/Support';
 
 
 

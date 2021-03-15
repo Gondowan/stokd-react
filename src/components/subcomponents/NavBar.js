@@ -1,6 +1,6 @@
 import { Navbar, Icon } from 'react-materialize';
 import { Link } from 'react-router-dom';
-import logo from '../stokd-logo.png';
+import logo from './stokd-logo.png';
 
 const NavBar = () => {  
     return (

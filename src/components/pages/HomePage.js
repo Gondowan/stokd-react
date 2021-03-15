@@ -1,9 +1,9 @@
-import HomeCard from './HomeCard.js';
+import HomeCard from '../subcomponents/HomeCard.js';
 import { Icon } from 'react-materialize';
 import { Link } from 'react-router-dom';
-import HomepageTabs from './HomepageTabs.js';
-import Pricing from './Pricing';
-import FooterPage from './FooterPage';
+import HomepageTabs from '../subcomponents/HomepageTabs';
+import Pricing from '../subcomponents/Pricing';
+import FooterSection from '../subcomponents/FooterSection';
 
 const HomePage = () => {
 
@@ -37,7 +37,7 @@ const HomePage = () => {
                 <h1>Pricing plans</h1>
             </div>
             <Pricing/>
-            <FooterPage/>
+            <FooterSection/>
         </div>
     </div>
     )

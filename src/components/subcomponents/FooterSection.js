@@ -1,6 +1,6 @@
 import {Footer} from 'react-materialize';
 
-const FooterPage = () => {
+const FooterSection = () => {
     return(
         
         <Footer
@@ -19,4 +19,4 @@ const FooterPage = () => {
     )
 }
 
-export default FooterPage;
+export default FooterSection;

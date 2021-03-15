@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios';
-import SideMenu from './SideMenu';
+import SideMenu from '../subcomponents/SideMenu';
 
 class EditPage extends Component {
   state = {

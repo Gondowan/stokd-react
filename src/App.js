@@ -1,13 +1,13 @@
 import './App.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import NavBar from './components/NavBar.js';
-import HomePage from './components/HomePage.js';
-import ContactForm from './components/ContactForm';
-import LoginForm from './components/LoginForm';
-import RegisterForm from './components/RegisterForm';
-import MobileDashboard from './components/MobileDashboard';
-import Dashboard from './components/Dashboard';
-import EditPage from './components/EditPage';
+import NavBar from './components/subcomponents/NavBar';
+import HomePage from './components/pages/HomePage';
+import ContactForm from './components/pages/ContactForm';
+import LoginForm from './components/pages/LoginForm';
+import RegisterForm from './components/pages/RegisterForm';
+import MobileDashboard from './components/subcomponents/MobileDashboard';
+import Dashboard from './components/pages/Dashboard';
+import EditPage from './components/pages/EditPage';
 
 function App() {
   return (

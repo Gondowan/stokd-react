@@ -1,5 +1,5 @@
-import SideMenu from './SideMenu';
-import HomeDashboard from './HomeDashboard';
+import SideMenu from '../subcomponents/SideMenu';
+import HomeDashboard from '../subcomponents/HomeDashboard';
 import Data from './Data';
 import Reports from './Reports';
 import Support from './Support';
