@@ -5,10 +5,10 @@ import axios from 'axios';
 
 class Data extends Component{    
     state = {
-        company: {}
+        products: []
     }
     componentDidMount(){
-        axios.get('https://stokd-backend-app.herokuapp.com/api/v1/companies/711/products').then(response => this.setState({products: response.data}))
+        axios.get('https://stokd-backend-app.herokuapp.com/api/v1/companies/4/products').then(response => this.setState({products: response.data}))
         
     }
     

@@ -40,13 +40,13 @@ class EditPage extends Component {
           </div>
         )
       }
-      return(
-        <div key={item.id}>
-          <label>{item[0]}</label>
-          <input defaultValue={item[1]}/>
-        </div>
-      )
-    }
+        return(
+          <div key={item.id}>
+            <label>{item[0]}</label>
+            <input defaultValue={item[1]}/>
+          </div>
+        )
+      }
      
     )
   }
