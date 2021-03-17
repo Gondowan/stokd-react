@@ -3,12 +3,11 @@ import HomeDashboard from '../subcomponents/HomeDashboard';
 import Data from './Data';
 import Reports from './Reports';
 import Support from './Support';
-
-import { useState } from 'react';
+import { connect } from 'react-redux';
 
 
 const Dashboard = (props) =>{
-  const [component, setContent] = useState('data')
+  const component  =  props.path
 
   const displayComponent = ()=>{
     if(component === 'dashboard'){
@@ -31,4 +30,8 @@ const Dashboard = (props) =>{
   )
 }
 
-export default Dashboard;
+const mapStateToProps = (state) =>{
+  return{ path: state.path.path }
+}
+
+export default connect(mapStateToProps)(Dashboard);

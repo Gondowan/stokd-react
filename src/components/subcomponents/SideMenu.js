@@ -6,9 +6,8 @@ import { Link } from 'react-router-dom';
 const SideMenu = (props) =>{
 
   const selected  =  props.path
-  console.log(props.path)
+  
   const handleClick = (string) =>{
-    console.log(string)
     props.sideMenuPath(string)
   }
   return(
