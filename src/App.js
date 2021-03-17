@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import NavBar from './components/subcomponents/NavBar';
 import HomePage from './components/pages/HomePage';
 import ContactForm from './components/pages/ContactForm';
@@ -8,8 +8,9 @@ import RegisterForm from './components/pages/RegisterForm';
 import MobileDashboard from './components/subcomponents/MobileDashboard';
 import Dashboard from './components/pages/Dashboard';
 import EditPage from './components/pages/EditPage';
+import { connect } from 'react-redux';
 
-function App() {
+function App(props) {
   return (
     <BrowserRouter>
         <div >
@@ -23,7 +24,7 @@ function App() {
                 <ContactForm/>
               </Route>
               <Route exact path="/login">
-                <LoginForm/>
+                {props.isSignedIn ? <Redirect to="/dashboard" /> : <LoginForm />}
               </Route>
               <Route exact path="/register">
                 <RegisterForm/>
@@ -41,5 +42,7 @@ function App() {
       </BrowserRouter>
   );
 }
-
-export default App;
+const mapStateToProps = (state) =>{
+  return { isSignedIn: state.auth.isSignedIn };
+}
+export default connect(mapStateToProps)(App);

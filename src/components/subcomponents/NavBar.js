@@ -24,10 +24,11 @@ const NavBar = (props) => {
             }}
             sidenav={
                 <div className="side-menu">
-                    <Link to="/dashboard">Dashboard</Link>
-                    <Link to="/login">Login</Link>
-                    <Link to="/register">Create account</Link>
+                    <Link  to="/dashboard">{props.isSignedIn === true ? 'Dashboard' : null }</Link>
                     <Link to="/contact">Get in touch</Link>
+                    <Link to="#/" onClick={props.signOut}>{!props.isSignedIn === true ? null : 'Logout'}</Link>
+                    <Link to="/login">{props.isSignedIn === true ? null : 'Login'}</Link>
+                    <Link to="/register">{props.isSignedIn === true ? null : 'Create account'}</Link>
                 </div>
             }
         >  
