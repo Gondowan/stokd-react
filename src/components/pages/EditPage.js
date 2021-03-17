@@ -8,7 +8,8 @@ class EditPage extends Component {
   }
 
   componentDidMount(){
-    axios.get(`https://stokd-backend-app.herokuapp.com/api/v1/companies/6/products/711`).then(response => this.setState({product: response.data}))
+    axios.get(`https://stokd-backend-app.herokuapp.com/api/v1/companies/4/products/365`).then(response => this.setState({product: response.data}))
+
   }
 
   renderProduct(){
@@ -16,9 +17,9 @@ class EditPage extends Component {
       if(item[0] === 'quantity'){
         return (
           <div key={item.id}>
-          <label>{item[0]}</label>
-          <input defaultValue={item[1]} type="number" />
-        </div>
+            <label>{item[0]}</label>
+            <input defaultValue={item[1]} type="number" />
+          </div>
         )
       }
       if(item[0] === 'id'){
@@ -30,7 +31,7 @@ class EditPage extends Component {
             <label>{item[0]}</label>
               {Object.entries(item[1]).map(item =>{
                 return(
-                  <div className="attributes-box">
+                  <div className="attributes-box" key={item.id}>
                     <input className="s4" defaultValue={item[0]}/>
                     <input className="s4" defaultValue={item[1]}></input>
                   </div>
@@ -51,6 +52,7 @@ class EditPage extends Component {
     )
   }
   render() {
+    console.log(this.state.product)
     return (
       <div className="dashboard-wrapper">
         <SideMenu />

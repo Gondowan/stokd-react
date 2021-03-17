@@ -4,10 +4,14 @@ import { Link } from 'react-router-dom';
 import HomepageTabs from '../subcomponents/HomepageTabs';
 import Pricing from '../subcomponents/Pricing';
 import FooterSection from '../subcomponents/FooterSection';
+import axios from 'axios';
 
 const HomePage = () => {
 
-    const initialize = () =>{}
+    const initialize = async () =>{
+        await axios.get('https://stokd-backend-app.herokuapp.com/api/v1/companies').then(response => console.log('backend called'))
+    }
+    initialize()
 
     return (
         <div>
@@ -27,7 +31,6 @@ const HomePage = () => {
                 </div>
             </div>
         <div className="App">
-            {/* <Slider/> */}
             <HomeCard/>
             <div className="home-card">
                 <h1>Easy to access inventory dashboard</h1>

@@ -1,34 +1,76 @@
-const LoginForm = () =>{
-  return(
-    <section id="contact" className="container">
-    <div className="row">
-        <h3>Login to your account</h3>
-        <form name="contact" className="col s12" method="POST" data-netlify="true">
-          
-          <div className="row">
-            <div className="input-field col s12">
-              <i className="material-icons prefix black-text lighten-1">email</i>
-              <input id="email" type="email" name="email" className="validate" />
-              <label htmlFor="email">Email</label>
-            </div>
-          </div>
+import { Component } from "react";
+import { connect } from 'react-redux';
+import { Field, reduxForm } from 'redux-form';
+import { signIn, signOut } from '../../actions';
 
-          <div className="row">
-            <div className="input-field col s12">
-              <i className="material-icons prefix black-text lighten-1">password</i>
-              <input id="password" type="password" name="password" className="validate" />
-              <label htmlFor="email">Password</label>
-            </div>
-          </div>
-          
+class LoginForm extends Component{
 
-          <button className="btn btn-large waves-effect waves-light deep-orange lighten-1" type="submit" name="action">Submit
-            <i className="material-icons right">send</i>
-          </button>
+  renderError({ error, touched }){
+    if(touched && error){
+      return(
+        <div className="login-alert">
+          <div className="header">{error}</div>
+        </div>
+      )
+    }
+  }
 
-        </form>
-    </div>
-  </section>
-  )
+  renderInput= ({ input, label, meta }) =>{
+    const className = `field ${meta.error && meta.touched ? 'error': ''}`
+    return (
+      <div className={className}>
+        <label>{label}</label>
+        <input {...input} autoComplete="off" />
+        {this.renderError(meta)}
+      </div>
+    ); 
+  }
+
+  render(){
+    console.log(this.props)
+    return(
+      <section id="contact" className="container">
+      <div className="row">
+          <h3>Login to your account</h3>
+          <form name="contact" className="col s12" method="POST" data-netlify="true">
+            <Field 
+              name="email" 
+              component={this.renderInput} 
+              label='Email' 
+            />
+            <Field 
+              name="password" 
+              component={this.renderInput} 
+              label="Password" 
+            />
+            <button className="btn btn-large waves-effect waves-light deep-orange lighten-1" type="submit" name="action">Submit
+              <i className="material-icons right">send</i>
+            </button>
+
+          </form>
+      </div>
+    </section>
+    )
+  }
 }
-export default LoginForm;
+const mapStateToProps = (state) => {
+  return { isSignedIn: state.auth.isSignedIn };
+}
+
+const validate = (formValues) =>{
+  const errors = {};
+
+  if(!formValues.email){
+    errors.email = 'Please enter an email'
+  }
+  if (!formValues.password){
+    errors.password = 'Please enter your password';
+  }
+  return errors;
+}
+
+export default reduxForm({
+  form: 'loginForm',
+  validate
+})(connect(mapStateToProps, { signIn, signOut })(LoginForm))
+  
