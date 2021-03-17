@@ -1,11 +1,15 @@
-import { useState } from 'react';
+import { sideMenuPath } from '../../actions/index';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-const SideMenu = (props) =>{
-  const [selected, setselected ] = useState('dashboard')
 
+const SideMenu = (props) =>{
+
+  const selected  =  props.path
+  console.log(props.path)
   const handleClick = (string) =>{
-    setselected(string);
+    console.log(string)
+    props.sideMenuPath(string)
   }
   return(
     <div className="dashboard-side-menu">
@@ -26,5 +30,8 @@ const SideMenu = (props) =>{
     </div>
   )
 }
+const mapStateToProps = (state) =>{
+  return{ path: state.path.path }
+}
 
-export default SideMenu;
+export default connect(mapStateToProps, {sideMenuPath})(SideMenu);

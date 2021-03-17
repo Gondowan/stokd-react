@@ -3,11 +3,12 @@ import createBrowserHistory from '../history';
 import { 
   SIGN_IN, 
   SIGN_OUT, 
-  CREATE_PRODUCT,
   FETCH_INVENTORY,
-  FETCH_PRODUCT,
-  DELETE_PRODUCT,
-  EDIT_PRODUCT
+  SIDE_MENU_PATH,
+  // CREATE_PRODUCT,
+  // FETCH_PRODUCT,
+  // DELETE_PRODUCT,
+  // EDIT_PRODUCT
 } from './types'
 
 
@@ -22,6 +23,11 @@ export const signOut = () =>{
     type: SIGN_OUT
   };
 };
+
+export const sideMenuPath = (path) =>dispatch =>{
+  
+  dispatch({type: SIDE_MENU_PATH, payload: path})
+}
 
 // export const createStream = (formValues) => async (dispatch, getState) =>{
 //   const { userId } = getState().auth;

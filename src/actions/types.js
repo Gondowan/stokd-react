@@ -6,3 +6,4 @@ export const FETCH_PRODUCT = 'FETCH_STREAM';
 export const DELETE_PRODUCT = 'DELETE_STREAM';
 export const EDIT_PRODUCT = 'EDIT_STREAM';
 export const EDIT_COUNT = 'EDIT_COUNT';
+export const SIDE_MENU_PATH = 'SIDE_MENU_PATH';

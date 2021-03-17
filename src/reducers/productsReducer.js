@@ -4,7 +4,7 @@ import {
   FETCH_PRODUCT,
   DELETE_PRODUCT,
   EDIT_PRODUCT,
-  FETCH_INVENTORY
+  FETCH_INVENTORY,
 } from '../actions/types';
 
 // eslint-disable-next-line import/no-anonymous-default-export
