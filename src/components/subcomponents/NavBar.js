@@ -1,8 +1,10 @@
 import { Navbar, Icon } from 'react-materialize';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 import logo from './stokd-logo.png';
+import { signOut } from '../../actions/index';
 
-const NavBar = () => {  
+const NavBar = (props) => {  
     return (
         <Navbar className="deep-orange lighten-1 navbar"
             alignLinks="right"
@@ -29,12 +31,15 @@ const NavBar = () => {
                 </div>
             }
         >  
-            <Link to="/dashboard">Dashboard</Link>
+            <Link to="/dashboard">{props.isSignedIn === true ? 'Dashboard' : null }</Link>
             <Link to="/contact">Get in touch</Link>
-            <Link to="/login">Login</Link>
-            <Link to="/register">Create account</Link>
+            <Link to="#/" onClick={props.signOut}>{!props.isSignedIn === true ? null : 'Logout'}</Link>
+            <Link to="/login">{props.isSignedIn === true ? null : 'Login'}</Link>
+            <Link to="/register">{props.isSignedIn === true ? null : 'Create account'}</Link>
         </Navbar>
     )
 }
-
-export default NavBar;
+const mapStateToProps = (state) =>{
+    return { isSignedIn: state.auth.isSignedIn };
+}
+export default connect(mapStateToProps, {signOut})(NavBar);

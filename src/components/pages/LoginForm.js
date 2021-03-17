@@ -5,6 +5,10 @@ import { signIn, signOut } from '../../actions';
 
 class LoginForm extends Component{
 
+  onSubmit = (formValues) =>{
+    
+    this.props.signIn(formValues)
+  }
   renderError({ error, touched }){
     if(touched && error){
       return(
@@ -27,12 +31,12 @@ class LoginForm extends Component{
   }
 
   render(){
-    console.log(this.props)
+    
     return(
       <section id="contact" className="container">
       <div className="row">
           <h3>Login to your account</h3>
-          <form name="contact" className="col s12" method="POST" data-netlify="true">
+          <form className="col s12" onSubmit={this.props.handleSubmit(this.onSubmit)}>
             <Field 
               name="email" 
               component={this.renderInput} 
@@ -43,7 +47,7 @@ class LoginForm extends Component{
               component={this.renderInput} 
               label="Password" 
             />
-            <button className="btn btn-large waves-effect waves-light deep-orange lighten-1" type="submit" name="action">Submit
+            <button className="btn btn-large waves-effect waves-light deep-orange lighten-1" >Submit
               <i className="material-icons right">send</i>
             </button>
 
@@ -58,6 +62,7 @@ const mapStateToProps = (state) => {
 }
 
 const validate = (formValues) =>{
+  // console.log(formValues)
   const errors = {};
 
   if(!formValues.email){
@@ -69,8 +74,13 @@ const validate = (formValues) =>{
   return errors;
 }
 
-export default reduxForm({
-  form: 'loginForm',
-  validate
-})(connect(mapStateToProps, { signIn, signOut })(LoginForm))
+
+// export default reduxForm({
+//   form: 'loginForm',
+//   validate
+// })(connect(mapStateToProps, { signIn, signOut })(LoginForm))
   
+export default connect(
+  mapStateToProps,
+  { signOut, signIn }
+)(reduxForm({ form: 'LoginForm', validate })(LoginForm));

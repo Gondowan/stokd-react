@@ -9,7 +9,7 @@ import axios from 'axios';
 const HomePage = () => {
 
     const initialize = async () =>{
-        await axios.get('https://stokd-backend-app.herokuapp.com/api/v1/companies').then(response => console.log('backend called'))
+        await axios.get('https://stokd-backend.herokuapp.com/api/v1/companies').then(response => console.log('backend called'))
     }
     initialize()
 

@@ -11,11 +11,10 @@ import {
 } from './types'
 
 
-export const signIn = (userId) =>{
-  return{
-    type: SIGN_IN,
-    payload: userId
-  };
+export const signIn =  ({email, password}) => async (dispatch) =>{
+  const response = await products.post('https://stokd-backend.herokuapp.com/api/v1/sign_in', {user: {email: email, password: password}})
+  dispatch({ type: SIGN_IN, payload: response.data })
+  createBrowserHistory.push('/dashboard')
 };
 
 export const signOut = () =>{
