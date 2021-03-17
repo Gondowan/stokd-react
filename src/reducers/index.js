@@ -7,6 +7,6 @@ import navigationReducer from './navigationReducer'
 export default combineReducers({
   auth: authReducer,
   form: formReducer,
-  streams: productsReducer,
+  inventory: productsReducer,
   path: navigationReducer
 })

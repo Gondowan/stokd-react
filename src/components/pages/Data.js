@@ -1,47 +1,17 @@
 import { Component } from 'react';
 import  { Link } from 'react-router-dom';
-import axios from 'axios';
+import { connect } from 'react-redux';
+import { fetchInventory } from '../../actions/index';
 
 
 class Data extends Component{    
-    state = {
-        products: []
-    }
     componentDidMount(){
-        axios.get('https://stokd-backend-app.herokuapp.com/api/v1/companies/4/products').then(response => this.setState({products: response.data}))
+        this.props.fetchInventory(this.props.companyId)
         
     }
-    
-    render(){
-        console.log(this.state)
-        const renderedProducts = this.state.products.map(elem =>{
-            return(
-                <tr key={elem.id}>
-                    <td>
-                        {elem.name}
-                    </td>
-                    <td className="sku">
-                        {elem.sku}
-                    </td>
-                    <td>
-                        {elem.price}
-                    </td>
-                    <td>
-                        <input id={elem.id} type="number" className="quantity-input" defaultValue={elem.quantity}/>
-                    </td>
-                    <td>
-                        {elem.category}
-                    </td>
-                    <td>
-                        <Link to={`/products/${elem.id}`}>See details <i className="far fa-paper-plane"></i></Link>
-                    </td>
-                </tr>
-            )
-        })
-        
-    return(
-        <div className="table" company={this.state.company}>
-        <table className="striped highlight centered">
+
+    renderHead(){
+        return(
             <thead>
                 <tr>
                     <th data-field="id">
@@ -58,17 +28,60 @@ class Data extends Component{
                     </th>
                     <th data-field="category">
                     category
-                    </th>  
-                    
-                     
+                    </th>
                 </tr>
-            </thead>  
-            <tbody>
-                {renderedProducts}
-            </tbody>
-        </table>
-        </div>
-    )
+            </thead>
+        )
+    }
+    
+    renderBody(){
+        if(this.props.inventory){      
+            return(      
+            this.props.inventory.map(elem =>{
+                return(
+                    <tr key={elem.content.id}>
+                        <td>
+                            {elem.content.name}
+                        </td>
+                        <td className="sku">
+                            {elem.content.sku}
+                        </td>
+                        <td>
+                            {elem.content.price}
+                        </td>
+                        <td>
+                            <input id={elem.content.id} type="number" className="quantity-input" defaultValue={elem.content.quantity}/>
+                        </td>
+                        <td>
+                            {elem.content.category}
+                        </td>
+                        <td>
+                            <Link to={`/products/${elem.content.id}`}>See details <i className="far fa-paper-plane"></i></Link>
+                        </td>
+                    </tr>
+                )
+            }))
+        }
+    }
+
+    render(){
+        return(
+            <div className="table" >
+            <table className="striped highlight centered">
+                {this.renderHead()}
+                <tbody>{this.renderBody()}</tbody>
+            </table>
+            </div>
+        )
     }
 }
- export default Data;
+const mapStateToProps = (state) =>{
+    
+    return{
+        fetchInventory: state.fetchInventory,
+        companyId: state.auth.user.data.user.company_id,
+        inventory: state.inventory.inventory
+    }
+}
+
+ export default connect(mapStateToProps, {fetchInventory})(Data);

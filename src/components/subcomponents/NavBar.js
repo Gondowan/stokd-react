@@ -26,7 +26,7 @@ const NavBar = (props) => {
                 <div className="side-menu">
                     <Link  to="/dashboard">{props.isSignedIn === true ? 'Dashboard' : null }</Link>
                     <Link to="/contact">Get in touch</Link>
-                    <Link to="#/" onClick={props.signOut}>{!props.isSignedIn === true ? null : 'Logout'}</Link>
+                    <Link to="/" onClick={props.signOut}>{!props.isSignedIn === true ? null : 'Logout'}</Link>
                     <Link to="/login">{props.isSignedIn === true ? null : 'Login'}</Link>
                     <Link to="/register">{props.isSignedIn === true ? null : 'Create account'}</Link>
                 </div>
@@ -34,13 +34,13 @@ const NavBar = (props) => {
         >  
             <Link to="/dashboard">{props.isSignedIn === true ? 'Dashboard' : null }</Link>
             <Link to="/contact">Get in touch</Link>
-            <Link to="#/" onClick={props.signOut}>{!props.isSignedIn === true ? null : 'Logout'}</Link>
+            <Link to="/" onClick={props.signOut}>{!props.isSignedIn === true ? null : 'Logout'}</Link>
             <Link to="/login">{props.isSignedIn === true ? null : 'Login'}</Link>
             <Link to="/register">{props.isSignedIn === true ? null : 'Create account'}</Link>
         </Navbar>
     )
 }
 const mapStateToProps = (state) =>{
-    return { isSignedIn: state.auth.isSignedIn };
+    return { isSignedIn: state.auth.isSignedIn, signOut: state.signOut };
 }
 export default connect(mapStateToProps, {signOut})(NavBar);

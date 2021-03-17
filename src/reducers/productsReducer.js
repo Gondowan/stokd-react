@@ -19,7 +19,7 @@ export default ( state = {}, action ) =>{
     case DELETE_PRODUCT:
       return _.omit(state, action.payload);
     case FETCH_INVENTORY:
-      return {...state, ..._.mapKeys(action.payload, 'id')}
+      return {...state, inventory: action.payload}
     default:
       return state
   }

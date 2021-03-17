@@ -24,7 +24,7 @@ class LoginForm extends Component{
     return (
       <div className={className}>
         <label>{label}</label>
-        <input {...input} autoComplete="off" />
+        <input {...input} />
         {this.renderError(meta)}
       </div>
     ); 
@@ -62,7 +62,6 @@ const mapStateToProps = (state) => {
 }
 
 const validate = (formValues) =>{
-  // console.log(formValues)
   const errors = {};
 
   if(!formValues.email){

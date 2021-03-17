@@ -19,9 +19,11 @@ export const signIn =  ({email, password}) => async (dispatch) =>{
 };
 
 export const signOut = () =>{
+  createBrowserHistory.push('/')
   return{
     type: SIGN_OUT
   };
+    
 };
 
 export const sideMenuPath = (path) =>dispatch =>{
@@ -36,8 +38,8 @@ export const sideMenuPath = (path) =>dispatch =>{
 //   dispatch({ type: CREATE_PRODUCT, payload: response.data })
 // }
 
-export const fetchStreams = () => async (dispatch) =>{
-  const response = await products.get('/companies/4/products')
+export const fetchInventory = (companyId) => async (dispatch) =>{
+  const response = await products.get(`https://stokd-backend.herokuapp.com/api/v1/companies/${companyId}/products`)
 
   dispatch({ type: FETCH_INVENTORY, payload: response.data })
 }
