@@ -213,6 +213,10 @@
 .dashboard-side-menu{
   display: none;
 }
+
+tspan{
+  text-orientation: sideways;
+}
 }
 
 
@@ -282,14 +286,10 @@
     width: 70vw;
     height: 70vh;
     margin: 0;
-
+    font-size: .75rem;
     border: none;
   }
-  .graph img{
-    height: 100%;
-    width: 100%;
-    border: none;
-  }
+ 
   .attributes-box{
     display: flex;
     justify-content: space-between !important;

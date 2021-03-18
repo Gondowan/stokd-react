@@ -7,7 +7,6 @@ import { fetchInventory } from '../../actions/index';
 class Data extends Component{    
     componentDidMount(){
         this.props.fetchInventory(this.props.companyId)
-        
     }
 
     renderHead(){
