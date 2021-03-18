@@ -1,5 +1,3 @@
-
-// import * as V from 'victory';
 import { VictoryBar, VictoryChart, VictoryAxis, VictoryLabel } from 'victory';
 import { connect } from 'react-redux';
 import { Component } from 'react';
@@ -7,6 +5,7 @@ import { Component } from 'react';
 
 class Graphs extends Component{
   state = {data: [], maxCount: 0}
+
   processData(){
     if(this.props.inventory){
       const array = []
@@ -25,12 +24,10 @@ class Graphs extends Component{
   componentDidMount(){
     this.processData()
     this.renderGraph()
-    
   }
 
   renderGraph(){
     if(Object.entries(this.state).length > 0){
-      
       return(
         <VictoryChart 
           domainPadding={[100, 10]}
@@ -42,7 +39,6 @@ class Graphs extends Component{
           crossAxis
           tickValues={[0, this.state.maxCount]}
           offsetY={190}
-          
         />
         <VictoryAxis 
           crossAxis
@@ -53,7 +49,6 @@ class Graphs extends Component{
             data={this.state.data} 
             x="sku"
             y="quantity" 
-            
             labelComponent={<VictoryLabel angle={90} verticalAnchor="start" textAnchor="start" lineHeight={1.2} dx={5} />}
             cornerRadius={5}
             style={{
@@ -67,7 +62,6 @@ class Graphs extends Component{
     }    
   }
   render(){
-    
     return(
       <div className="graph">{this.state.data.length > 0 ? this.renderGraph() : "Loading data"}</div>
     )
