@@ -9,8 +9,6 @@ class Highlights extends Component{
     attention: {}
   }
   
-  
-
   componentDidMount(){
     this.getCount();
     this.getFeatured();
@@ -35,7 +33,7 @@ class Highlights extends Component{
     })
     return this.setState({featured: featured[0].content})
   }
-  
+
   getAttention(){
     const array = []
       this.props.inventory.map(item =>{
@@ -49,9 +47,9 @@ class Highlights extends Component{
 
   renderedCards(){
     const array = [
-      {id: 1, title: 'Total Inventory Count', data: this.state.total},
-      {id: 2, title: 'Featured Product', data: `${this.state.featured.name}: ${this.state.featured.quantity}`},
-      {id: 3, title: 'Needs Attention', data: `${this.state.attention.name}: ${this.state.attention.quantity}`}
+      {id: 1, title: 'Total Inventory Count', data: this.state.total, icon: "fas fa-boxes fa-3x brown-text"},
+      {id: 2, title: 'Featured Product', data: `${this.state.featured.name}: ${this.state.featured.quantity}`, icon: "fas fa-star fa-3x yellow-text"},
+      {id: 3, title: 'Needs Attention', data: `${this.state.attention.name}: ${this.state.attention.quantity}`, icon: "fas fa-exclamation fa-3x deep-orange-text lighten-2"}
     ]
       return array.map(elem =>{
         return(
@@ -59,7 +57,7 @@ class Highlights extends Component{
             key={elem.id}
             className="highlight-card z-depth-2"      
           >
-            <i className="fas fa-boxes fa-3x"></i>
+            <i className={elem.icon}></i>
             <div>
               <h5 className="highlight-card-title">{elem.title}</h5>
               <p>{elem.data}</p>

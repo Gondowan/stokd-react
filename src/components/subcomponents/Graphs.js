@@ -22,8 +22,8 @@ class Graphs extends Component{
   }
 
   componentDidMount(){
-    this.processData()
-    this.renderGraph()
+    this.processData();
+    this.renderGraph();
   }
 
   renderGraph(){
@@ -49,11 +49,11 @@ class Graphs extends Component{
             data={this.state.data} 
             x="sku"
             y="quantity" 
-            labelComponent={<VictoryLabel angle={90} verticalAnchor="start" textAnchor="start" lineHeight={1.2} dx={5} />}
+            labelComponent={<VictoryLabel angle={90} verticalAnchor="start" textAnchor="start" lineHeight={0.8} dx={5} />}
             cornerRadius={5}
             style={{
               data: {fill: "tomato", width: 25},
-              labels: {fontSize: 17, angle: 90, fill:"white"}
+              labels: {fontSize: 25, angle: 90, fill:"white", fontWeight: 700}
             }}
           >
           </VictoryBar>
