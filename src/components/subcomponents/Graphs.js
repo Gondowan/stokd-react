@@ -1,25 +1,31 @@
 
 // import * as V from 'victory';
-import { VictoryBar, VictoryChart, VictoryAxis, VictoryLabel, VictoryGroup } from 'victory';
+import { VictoryBar, VictoryChart, VictoryAxis, VictoryLabel } from 'victory';
 import { connect } from 'react-redux';
 import { Component } from 'react';
 
 
 class Graphs extends Component{
-  state = {data: []}
+  state = {data: [], maxCount: 0}
   processData(){
     if(this.props.inventory){
       const array = []
       this.props.inventory.map(elem =>{
-          return array.push({ quantity: elem.content.quantity, label: `${elem.content.name }: ${elem.content.quantity}`, name: elem.content.name })
+          return array.push({ quantity: elem.content.quantity, label: `${elem.content.name }: ${elem.content.quantity}`, sku: elem.content.sku })
         })
       this.setState({data: array})
+      let top = 0
+      this.props.inventory.map(item =>{
+        return item.content.quantity > top ? top = item.content.quantity : null
+      })
+      this.setState({maxCount: top})
     }
   }
 
   componentDidMount(){
     this.processData()
     this.renderGraph()
+    
   }
 
   renderGraph(){
@@ -28,26 +34,31 @@ class Graphs extends Component{
       return(
         <VictoryChart 
           domainPadding={[100, 10]}
-          width={1000} 
-          
-          height={500}
-          style={{
-                  labels: {fontSize: 5},
-                  ticklabels:{angle: 90}                
-                }}
+          width={1500} 
+          height={750}
         >
+          <VictoryAxis 
+          dependentAxis
+          crossAxis
+          tickValues={[0, this.state.maxCount]}
+          offsetY={190}
+          
+        />
+        <VictoryAxis 
+          crossAxis
+          tickValues={this.state.data.map(elem =>elem.quantity)}
+          tickFormat={t => t === 0 ? 'SKU' : null}
+        />
           <VictoryBar 
             data={this.state.data} 
-            x="name"
+            x="sku"
             y="quantity" 
             
             labelComponent={<VictoryLabel angle={90} verticalAnchor="start" textAnchor="start" lineHeight={1.2} dx={5} />}
-            
+            cornerRadius={5}
             style={{
-              data: {fill: "tomato", width: 20},
-              labels: {fontSize: 17, angle: 90},
-              ticklabels: {angle: 90}
-              
+              data: {fill: "tomato", width: 25},
+              labels: {fontSize: 17, angle: 90, fill:"white"}
             }}
           >
           </VictoryBar>
