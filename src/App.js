@@ -27,7 +27,7 @@ function App(props) {
                 {props.isSignedIn ? <Redirect to="/dashboard" /> : <LoginForm />}
               </Route>
               <Route exact path="/register">
-                <RegisterForm/>
+                {props.isSignedIn ? <Redirect to="/" /> : <RegisterForm />}
               </Route>
               <Route exact path="/Dashboard">
                 <MobileDashboard/>
