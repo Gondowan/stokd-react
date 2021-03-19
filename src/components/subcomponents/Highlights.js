@@ -17,9 +17,12 @@ class Highlights extends Component{
   
   getCount(){
     let count = 0;
-    this.props.inventory.map(item =>{
-      return count += item.content.quantity
-    })
+    if(Object.entries(this.props.inventory).length > 0){
+      this.props.inventory.map(item =>{
+        return count += item.content.quantity
+      })
+    }
+    
     return this.setState({total: count})
   }
 
@@ -60,7 +63,7 @@ class Highlights extends Component{
             <i className={elem.icon}></i>
             <div>
               <h5 className="highlight-card-title">{elem.title}</h5>
-              <p>{elem.data}</p>
+              <h5>{elem.data}</h5>
             </div>
           </div>
         )

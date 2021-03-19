@@ -1,6 +1,7 @@
 import products from '../apis/products';
 import createBrowserHistory from '../history';
 import { 
+  REGISTER,
   SIGN_IN, 
   SIGN_OUT, 
   FETCH_INVENTORY,
@@ -11,6 +12,11 @@ import {
   // EDIT_PRODUCT
 } from './types'
 
+export const register =  ({email, password, passwordConfirmation}) => async (dispatch) =>{
+  const response = await products.post('https://stokd-backend.herokuapp.com/api/v1/sign_up', {user: {email: email, password: password, passwordConfirmation: passwordConfirmation}})
+  dispatch({ type: REGISTER, payload: response.data })
+  createBrowserHistory.push('/')
+};
 
 export const signIn =  ({email, password}) => async (dispatch) =>{
   const response = await products.post('https://stokd-backend.herokuapp.com/api/v1/sign_in', {user: {email: email, password: password}})
@@ -23,7 +29,6 @@ export const signOut = () =>{
   return{
     type: SIGN_OUT
   };
-    
 };
 
 export const sideMenuPath = (path) =>dispatch =>{
