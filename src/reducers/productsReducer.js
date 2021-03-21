@@ -7,8 +7,10 @@ import {
   FETCH_INVENTORY,
 } from '../actions/types';
 
+const INITIAL_STATE =  {inventory: [], dataLoaded: false}
+
 // eslint-disable-next-line import/no-anonymous-default-export
-export default ( state = {}, action ) =>{
+export default ( state = INITIAL_STATE, action ) =>{
   switch (action.type){
     case FETCH_PRODUCT:
       return { ...state, [action.payload.id]: action.payload }
@@ -19,7 +21,7 @@ export default ( state = {}, action ) =>{
     case DELETE_PRODUCT:
       return _.omit(state, action.payload);
     case FETCH_INVENTORY:
-      return {...state, inventory: action.payload}
+      return {...state, inventory: action.payload, dataLoaded: true}
     default:
       return state
   }

@@ -1,6 +1,5 @@
 import { Tabs, Tab } from 'react-materialize';
 import Data from '../pages/Data';
-import Highlights  from './Highlights';
 import Support from '../pages/Support';
 
 
@@ -22,7 +21,6 @@ const MobileDashboard = () =>{
             title="Dashboard"
           >
             <div className="small-dashboard">
-              <Highlights />
               <img src="https://res.cloudinary.com/dliczkabg/image/upload/v1614785611/01_graph_dashboard_wbw8xf.png" className="mobile-graph" alt="graph"/>
             </div>
           </Tab>
