@@ -1,6 +1,7 @@
 export const REGISTER = 'REGISTER';
 export const SIGN_IN = 'SIGN_IN';
 export const SIGN_OUT = 'SIGN_OUT';
+export const IS_LOGGED_IN = 'IS_LOGGED_In'
 export const CREATE_PRODUCT = 'CREATE_STREAM';
 export const FETCH_INVENTORY = 'FETCH_STREAMS';
 export const FETCH_PRODUCT = 'FETCH_STREAM';

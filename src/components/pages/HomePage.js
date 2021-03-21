@@ -4,14 +4,14 @@ import { Link } from 'react-router-dom';
 import HomepageTabs from '../subcomponents/HomepageTabs';
 import Pricing from '../subcomponents/Pricing';
 import FooterSection from '../subcomponents/FooterSection';
-import axios from 'axios';
+import { isLoggedIn } from '../../actions/index'
+import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
-const HomePage = () => {
-
-    const initialize = async () =>{
-        await axios.get('https://stokd-backend.herokuapp.com/api/v1/companies').then(response => console.log('backend called'))
-    }
-    initialize()
+const HomePage = (props) => {
+    const dispatch = useDispatch()
+    dispatch(isLoggedIn())
+    
 
     return (
         <div>
@@ -46,4 +46,4 @@ const HomePage = () => {
     )
 }
 
-export default HomePage;
+export default connect(null, { isLoggedIn })(HomePage);

@@ -5,6 +5,7 @@ import {
   DELETE_PRODUCT,
   EDIT_PRODUCT,
   FETCH_INVENTORY,
+  SIGN_OUT,
 } from '../actions/types';
 
 const INITIAL_STATE =  {inventory: [], dataLoaded: false}
@@ -22,6 +23,8 @@ export default ( state = INITIAL_STATE, action ) =>{
       return _.omit(state, action.payload);
     case FETCH_INVENTORY:
       return {...state, inventory: action.payload, dataLoaded: true}
+    case SIGN_OUT:
+      return {...state, inventory: state, dataLoaded: false}
     default:
       return state
   }

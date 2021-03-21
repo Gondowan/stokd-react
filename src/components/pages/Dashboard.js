@@ -3,11 +3,16 @@ import HomeDashboard from '../subcomponents/HomeDashboard';
 import Data from './Data';
 import Reports from './Reports';
 import Support from './Support';
+import { isLoggedIn } from '../../actions/index'
 import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 
 const Dashboard = (props) =>{
   const component  =  props.path
+
+  const dispatch = useDispatch()
+    dispatch(isLoggedIn())
 
   const displayComponent = ()=>{
     if(component === 'dashboard'){

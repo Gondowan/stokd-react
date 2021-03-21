@@ -1,21 +1,20 @@
-
 import Graphs from './Graphs';
 import Tasks from './Tasks';
 import { connect } from 'react-redux'
-import { useState, useEffect } from 'react'
+import {  useEffect } from 'react'
+import { useDispatch } from 'react-redux'
 import Card from './Card';
+import { fetchInventory } from '../../actions';
 
 const HomeDashboard = (props)=>{
-  const [count, setCount] = useState(0);
 
-  useEffect(()=>{
-    let count = 0;
-    props.inventory.forEach(item =>{
-      count += item.content.quantity
-    })
-    setCount(count)
-  }, [setCount, props.inventory])
+  const dispatch = useDispatch()
 
+  useEffect(() => {
+    dispatch(fetchInventory(props.id))
+    
+  }, [])
+  
 
 
   const info =  [
@@ -25,7 +24,7 @@ const HomeDashboard = (props)=>{
   ]
 
   const renderCard = info.map(card => {
-    return <Card id={card.id} title={card.title} icon={card.icon} />
+    return <Card id={card.id} title={card.title} icon={card.icon} key={card.id}/>
   })
 
   return(
@@ -39,7 +38,10 @@ const HomeDashboard = (props)=>{
   )
 }
 const mapStateToProps = (state) =>{
-  return {inventory: state.inventory.inventory}
+  return {
+    inventory: state.inventory.inventory,
+    id: state.auth.user.data.user.company_id
+  }
 }
 
 export default connect(mapStateToProps,{})(HomeDashboard);

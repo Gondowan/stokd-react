@@ -10,7 +10,7 @@ import Dashboard from './components/pages/Dashboard';
 import EditPage from './components/pages/EditPage';
 import { connect } from 'react-redux';
 
-function App(props) {
+const App = (props) => {
   return (
     <BrowserRouter>
         <div >
@@ -18,7 +18,7 @@ function App(props) {
           <div className="main-container">
           <Switch>
               <Route exact path="/">
-                <HomePage />
+                {props.isSignedIn ? <Dashboard/> : <HomePage />}
               </Route>
               <Route exact path="/contact">
                 <ContactForm/>
@@ -30,8 +30,8 @@ function App(props) {
                 {props.isSignedIn ? <Redirect to="/" /> : <RegisterForm />}
               </Route>
               <Route exact path="/Dashboard">
-                <MobileDashboard/>
-                <Dashboard/>
+                {props.isSignedIn ? <MobileDashboard/> : <Redirect to="/" />}
+                {props.isSignedIn ? <Dashboard/> : <Redirect to="/" />}
               </Route>
               <Route exact path="/products/:id">
                 <EditPage />
