@@ -1,22 +1,32 @@
 import React, { useState, useEffect } from 'react'
 import { VictoryAxis, VictoryBar, VictoryChart, VictoryLabel } from 'victory';
-
+import { useSelector } from 'react-redux';
 const Graphs = (props) => {
-  const [ data, setData ] = useState([])
+  const state = useSelector(state => state.inventory.inventory)
+  const dataLoaded = useSelector(state => state.inventory.dataLoaded)
+  const [data, setData] = useState([])
   const [ maxCount, setMaxCount ] = useState(0)
+
 
   useEffect(()=>{
     const array = []
-    props.data.map(elem => array.push({ quantity: elem.content.quantity, label: `${elem.content.name }: ${elem.content.quantity}`, sku: elem.content.sku }))
+    if(dataLoaded){
+      state.map(elem => array.push({ quantity: elem.content.quantity, label: `${elem.content.name }: ${elem.content.quantity}`, sku: elem.content.sku }))
+    }
     setData(array)
-    let top = 0
-    props.data.map(item =>{
-      return item.content.quantity > top ? top = item.content.quantity : null
-    })
-    setMaxCount(top)
-
     
-  },[props.data, props.maxCount])
+  },[dataLoaded, state])
+
+  useEffect(() => {
+    let top = 0
+    if(dataLoaded){
+      data.map(item =>{
+      return item.content.quantity > top ? top = item.content.quantity : null
+      })
+    setMaxCount(top)
+    }
+    
+  }, [props.data])
 
   return (
     <div className="graph">

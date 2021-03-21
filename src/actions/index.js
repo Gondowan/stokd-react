@@ -52,7 +52,6 @@ export const sideMenuPath = (path) =>dispatch =>{
 
 
 export const fetchInventory = (companyId) => async (dispatch) =>{
-  console.log(companyId)
   const response = await products.get(`http://localhost:3001/api/v1/companies/${companyId}/products`)
 
   dispatch({ type: FETCH_INVENTORY, payload: response.data })

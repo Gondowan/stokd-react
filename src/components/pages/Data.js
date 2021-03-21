@@ -1,15 +1,21 @@
-import { Component } from 'react';
 import  { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
 import { fetchInventory } from '../../actions/index';
+import { useEffect } from 'react';
 
 
-class Data extends Component{    
-    componentDidMount(){
-        this.props.fetchInventory(this.props.companyId)
-    }
+const Data = (props) =>{    
+    console.log(props)
 
-    renderHead(){
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+      dispatch(fetchInventory(props.id))
+      
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
+
+    const renderHead = () =>{
         return(
             <thead>
                 <tr>
@@ -33,10 +39,10 @@ class Data extends Component{
         )
     }
     
-    renderBody(){
-        if(this.props.inventory){      
+    const renderBody = () =>{
+        if(props.inventory){      
             return(      
-            this.props.inventory.map(elem =>{
+            props.data.inventory.map(elem =>{
                 return(
                     <tr key={elem.content.id}>
                         <td>
@@ -62,25 +68,22 @@ class Data extends Component{
             }))
         }
     }
-
-    render(){
-        return(
-            <div className="table" >
-            <table className="striped highlight centered">
-                {this.renderHead()}
-                <tbody>{this.renderBody()}</tbody>
-            </table>
-            </div>
-        )
-    }
+    return(
+        <div className="table" >
+        <table className="striped highlight centered">
+            {renderHead()}
+            <tbody>{renderBody()}</tbody>
+        </table>
+        </div>
+    )
 }
-const mapStateToProps = (state) =>{
+// const mapStateToProps = (state) =>{
     
-    return{
-        fetchInventory: state.fetchInventory,
-        companyId: state.auth.user.data.user.company_id,
-        inventory: state.inventory.inventory
-    }
-}
+    // return{
+    //     fetchInventory: state.fetchInventory,
+    //     companyId: state.auth.user.data.user.company_id,
+    //     // inventory: state.inventory.inventory
+    // }
+// }
 
- export default connect(mapStateToProps, {fetchInventory})(Data);
+ export default connect()(Data);

@@ -4,15 +4,21 @@ import Data from './Data';
 import Reports from './Reports';
 import Support from './Support';
 import { isLoggedIn } from '../../actions/index'
-import { connect } from 'react-redux';
-import { useDispatch } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
+import { fetchInventory } from '../../actions';
+import { useEffect } from 'react'
+
 
 
 const Dashboard = (props) =>{
   const component  =  props.path
 
   const dispatch = useDispatch()
-    dispatch(isLoggedIn())
+    
+    useEffect(() => {
+      dispatch(isLoggedIn())
+      
+    }, [dispatch])
 
   const displayComponent = ()=>{
     if(component === 'dashboard'){
@@ -36,7 +42,11 @@ const Dashboard = (props) =>{
 }
 
 const mapStateToProps = (state) =>{
-  return{ path: state.path.path }
+  return{ 
+    path: state.path.path,
+    inventory: state.inventory.inventory,
+    id: state.auth.user.data.user.company_id
+   }
 }
 
 export default connect(mapStateToProps)(Dashboard);
